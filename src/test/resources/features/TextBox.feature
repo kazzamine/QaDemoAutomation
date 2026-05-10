@@ -10,3 +10,10 @@ Feature: Testing different Text boxes
     And The Email output should show "test@gmail.com"
     And The Current Address output should show "23 , rabat Morocco"
     And The Permanent Address output should show "23 , rabat Morocco"
+
+    Scenario: Filling in text box with invalid email
+      Given the User is on the Text box page
+      When The user fills in Full Name textbox with "amine"
+      And The user fills in Email textbox with "testgmail.com"
+      And The user clicks on submit
+      Then Email textbox should be outlined with red

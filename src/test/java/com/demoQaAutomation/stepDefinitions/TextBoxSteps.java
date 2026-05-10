@@ -2,6 +2,7 @@ package com.demoQaAutomation.stepDefinitions;
 
 import com.demoQaAutomation.pages.TextBoxPage;
 import com.demoQaAutomation.utils.DriverManager;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -62,4 +63,9 @@ public class TextBoxSteps {
         Assert.assertTrue(permanentAddress.contains(expectedPermanentAddress));
     }
 
+
+    @Then("Email textbox should be outlined with red")
+    public void emailFieldShouldBeRed(){
+        Assert.assertTrue(textBoxPage.isEmailFieldRed());
+    }
 }

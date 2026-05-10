@@ -5,6 +5,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TextBoxPage {
     private WebDriver driver;
 
@@ -13,6 +16,7 @@ public class TextBoxPage {
     private By currentAddressTextArea=By.id("currentAddress");
     private By permanentAddressTextArea=By.id("permanentAddress");
     private By submitButton=By.id("submit");
+    private By outputDiv=By.cssSelector("#output div");
     private By nameOutput=By.cssSelector("#output #name");
     private By emailOutput=By.cssSelector("#output #email");
     private By currentAddressOutput=By.cssSelector("#output #currentAddress");
@@ -53,6 +57,11 @@ public class TextBoxPage {
     }
     public String getPermanentAddressOutput(){
         return  driver.findElement(permanentAddressOutput).getText();
+    }
+
+    public boolean isEmailFieldRed(){
+        WebElement emailField=driver.findElement(emailTextBox);
+        return emailField.getAttribute("class").contains("field-error");
     }
 
 }
