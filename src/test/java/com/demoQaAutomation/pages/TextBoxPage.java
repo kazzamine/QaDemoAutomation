@@ -1,7 +1,9 @@
 package com.demoQaAutomation.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class TextBoxPage {
     private WebDriver driver;
@@ -34,7 +36,9 @@ public class TextBoxPage {
     }
 
     public void clickSubmitButton(){
-        driver.findElement(submitButton).click();
+        WebElement button = driver.findElement(submitButton);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", button);
     }
 
 
